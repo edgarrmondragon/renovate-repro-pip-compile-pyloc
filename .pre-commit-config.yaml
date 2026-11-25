@@ -1,0 +1,16 @@
+repos:
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: "0.13.9"
+    hooks:
+      - id: pip-compile
+        files: ^(pyproject\.toml|pylock\.toml)$
+        args:
+          - pyproject.toml
+          - "--format=pylock.toml"
+          - "--output-file=pylock.toml"
+      - id: pip-compile
+        files: ^(pyproject\.toml|requirements\.txt)$
+        args:
+          - pyproject.toml
+          - "--format=requirements.txt"
+          - "--output-file=requirements.txt"
